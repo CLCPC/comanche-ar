@@ -1,0 +1,21 @@
+{
+  "name": "Comanche AR Language App",
+  "short_name": "Comanche AR",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#fff0f5",
+  "theme_color": "#8847ff",
+  "description": "Augmented reality app for learning Comanche vocabulary through object recognition.",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
