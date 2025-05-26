@@ -1,93 +1,31 @@
-<html>
-  <head>
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#8847ff">
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1"
-    />
-    <meta
-      name="description"
-      content="Hawaiian AI Object Detection"
-    />
-    <meta name="author" content="Michael Running Wolf, Noelani Arista, Caroline Running Wolf, Caleb Moses, and Joel Davison" />
-    <title>Hua Ki'i Mobile App</title>
-    
-    <script src="https://kit.fontawesome.com/73179e287a.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
-  
-  <link rel="manifest" href="manifest.json">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Comanche AR</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="icon-192.png">
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
+  <style>
+    body { font-family: sans-serif; background: #ffffff; text-align: center; padding: 1em; }
+    video { width: 360px; max-width: 90%; border: 3px solid #3e7db4; border-radius: 12px; margin-top: 1em; }
+    .word-output { font-size: 1.5em; margin-top: 1em; color: #3e7db4; }
+  </style>
 </head>
-  <body>
-    <div id="container">
-      <div id="vid_container">
-        <video id="video" autoplay playsinline></video>
-        <div id="video_overlay"></div>
-        <!-- Remix link removed for GitHub deployment -->
-          
-        </a>
-        <div id="huakiiImage">
-          <img src="img/huakii.png">
-        </div>
-        <div id="recognitionText" >loading...</div>
-        <div id="errorText" >Error</div>
-      </div>
-      <div id="gui_controls">
-        <button
-          id="switchCameraButton"
-          name="switch Camera"
-          type="button"
-          aria-pressed="false"
-        ></button>
-        <button id="takePhotoButton" name="take Photo" type="button"></button>
-        <button
-          id="toggleFullScreenButton"
-          name="toggle FullScreen"
-          type="button"
-          aria-pressed="false"
-        ></button>
-      </div>
-    </div>
+<body>
+  <img src="logo.png" alt="CLCPC Logo" style="max-width: 200px; margin-bottom: 1em;">
+<h1>Comanche AR Word Viewer</h1>
+  <video id="video" autoplay playsinline muted></video>
+  <div class="word-output" id="output">Loading model...</div>
 
-    <!-- Camera Adapter Library -->
-    <script src="https://webrtc.github.io/adapter/adapter-7.7.0.js"></script>
-
-    <!-- Screenful for fullscreen support-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/screenfull.js/5.1.0/screenfull.min.js"></script>
-
-    <!-- Howler for click sound -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.1/howler.core.min.js"></script>
-
-    <!-- Jquery-->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" 
-            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-
-    <!-- Import TensorFlow.js library -->
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js" type="text/javascript"></script>
-    
-    <!-- Load the coco-ssd model -->
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
-
-    <script src="js/main.js"></script>
-    <script src="js/hua_kii.js"></script>
   <script src="script.js"></script>
-
-<script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js')
-      .then(() => console.log('Service Worker Registered'));
-  }
-</script>
-<script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js')
-      .then(function() { console.log('Service Worker Registered'); });
-  }
-</script>
-
-    <noscript><p>Please enable JavaScript to use this app.</p></noscript>
-    <p>If the camera doesn't load, please ensure you're using HTTPS or localhost and have granted camera permissions.</p>
-    
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(() => console.log('Service Worker Registered'));
+    }
+  </script>
 </body>
 </html>

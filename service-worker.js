@@ -1,25 +1,24 @@
-const CACHE_NAME = 'comanche-ar-cache-v1';
-const urlsToCache = [
-  './',
-  './index.html',
-  './style.css',
-  './script.js',
-  './dictionary.json'
-];
-
-self.addEventListener('install', function(event) {
+self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then(function(cache) {
-      return cache.addAll(urlsToCache);
+    caches.open('comanche-ar-v2').then(cache => {
+      return cache.addAll([
+        '/',
+        '/index.html',
+        '/script.js',
+        '/dictionary.json',
+        '/manifest.json',
+        '/icon-192.png',
+        '/icon-512.png',
+        '/audio/sarii.mp3'
+      ]);
     })
   );
 });
 
-self.addEventListener('fetch', function(event) {
+self.addEventListener('fetch', event => {
   event.respondWith(
-    caches.match(event.request)
-      .then(function(response) {
-        return response || fetch(event.request);
-      })
+    caches.match(event.request).then(response => {
+      return response || fetch(event.request);
+    })
   );
 });
